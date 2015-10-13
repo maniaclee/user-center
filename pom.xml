@@ -11,6 +11,7 @@
     <modules>
         <module>user-center-client</module>
         <module>user-center-biz</module>
+        <module>sdfsdf</module>
     </modules>
 
     <properties>
