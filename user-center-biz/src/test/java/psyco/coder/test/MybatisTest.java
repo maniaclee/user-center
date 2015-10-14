@@ -1,6 +1,7 @@
 package psyco.coder.test;
 
 import com.google.common.base.CaseFormat;
+import com.google.common.collect.Lists;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.boot.test.SpringApplicationConfiguration;
@@ -30,7 +31,11 @@ public class MybatisTest {
         update.setId(id);
         update.setLevel(100);
         ageMapper.update(update);
+        update.setId(null);
+        System.out.println("key:"+ageMapper.insert(update)+"\t" + update.getId());
+        ageMapper.delete(update.getId());
         System.out.println(ageMapper.findOne(20l));
+        System.out.println(ageMapper.find(Lists.newArrayList(20l,21l)));
     }
 
     @Test

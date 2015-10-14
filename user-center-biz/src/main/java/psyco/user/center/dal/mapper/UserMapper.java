@@ -1,7 +1,8 @@
 package psyco.user.center.dal.mapper;
 
-import java.util.List;
 import psyco.user.center.dal.entity.User;
+
+import java.util.List;
 
 public interface UserMapper{
 
@@ -9,7 +10,7 @@ public interface UserMapper{
 
     public List<User> find(List<Long> ids);
 
-    public void insert(User user);
+    public Long insert(User user);
 
     public void update(User user);
 

@@ -29,8 +29,8 @@
             <if test="email != null">  email = #{email},</if>
             <if test="phone != null">  phone = #{phone},</if>
             <if test="level != null">  level = #{level},</if>
-            <if test="image_url != null">  image_url = #{imageUrl},</if>
-            <if test="image_thumb_url != null">  image_thumb_url = #{imageThumbUrl},</if>
+            <if test="imageUrl != null">  image_url = #{imageUrl},</if>
+            <if test="imageThumbUrl != null">  image_thumb_url = #{imageThumbUrl},</if>
             <if test="role != null">  role = #{role},</if>
             <if test="enabled != null">  enabled = #{enabled},</if>
             <if test="password != null">  password = #{password},</if>
@@ -41,7 +41,7 @@
         <include refid="selectAllColumns"/>
         where id = #{id}
     </select>
-    <select id="find" resultMap="resultMap">
+    <select id="find" resultMap="resultMap" parameterType="list" >
         <include refid="selectAllColumns"/>
         <where>
             <if test="ids != null">
@@ -54,7 +54,7 @@
         ORDER BY id desc
     </select>
 
-    <update id="update" parameterType="com.pajk.trademanage.dal.model.ConsultOrder">
+    <update id="update" parameterType="psyco.user.center.dal.entity.User">
         UPDATE
         User
         <include refid="setAllColumns"/>
@@ -63,8 +63,12 @@
     </update>
 
     <insert id="insert" useGeneratedKeys="true" keyProperty="id" parameterType="User">
+        <selectKey resultType="Long" keyProperty="id" order="AFTER" >
+          SELECT LAST_INSERT_ID() AS id
+        </selectKey>
         INSERT INTO User
-        <include refid="setAllColumns"/>
+        (id,name,sex,email,phone,level,image_url,image_thumb_url,role,enabled,password)
+        values(#{id},#{name},#{sex},#{email},#{phone},#{level},#{imageUrl},#{imageThumbUrl},#{role},#{enabled},#{password})
     </insert>
 
     <delete id="delete">
