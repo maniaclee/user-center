@@ -1,7 +1,7 @@
-package psyco.coderbot.dao.entity;
+package psyco.user.center.dal.entity;
 
 /**
- * Created by psyco on 2015/57/14-02:10:37.
+ * Created by psyco on 2015/20/14-04:10:46.
  */
 public class User {
 
