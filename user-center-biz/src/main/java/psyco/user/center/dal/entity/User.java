@@ -1,8 +1,5 @@
 package psyco.user.center.dal.entity;
 
-/**
- * Created by psyco on 2015/20/14-04:10:46.
- */
 public class User {
 
     private Long id;
@@ -20,91 +17,91 @@ public class User {
     public User() {
     }
 
-    public Long setId() {
+    public Long getId() {
         return this.id;
     }
 
-    public void getId(Long id) {
+    public void setId(Long id) {
         this.id = id;
     }
 
-    public String setName() {
+    public String getName() {
         return this.name;
     }
 
-    public void getName(String name) {
+    public void setName(String name) {
         this.name = name;
     }
 
-    public Short setSex() {
+    public Short getSex() {
         return this.sex;
     }
 
-    public void getSex(Short sex) {
+    public void setSex(Short sex) {
         this.sex = sex;
     }
 
-    public String setEmail() {
+    public String getEmail() {
         return this.email;
     }
 
-    public void getEmail(String email) {
+    public void setEmail(String email) {
         this.email = email;
     }
 
-    public String setPhone() {
+    public String getPhone() {
         return this.phone;
     }
 
-    public void getPhone(String phone) {
+    public void setPhone(String phone) {
         this.phone = phone;
     }
 
-    public Integer setLevel() {
+    public Integer getLevel() {
         return this.level;
     }
 
-    public void getLevel(Integer level) {
+    public void setLevel(Integer level) {
         this.level = level;
     }
 
-    public String setImageUrl() {
+    public String getImageUrl() {
         return this.imageUrl;
     }
 
-    public void getImageUrl(String imageUrl) {
+    public void setImageUrl(String imageUrl) {
         this.imageUrl = imageUrl;
     }
 
-    public String setImageThumbUrl() {
+    public String getImageThumbUrl() {
         return this.imageThumbUrl;
     }
 
-    public void getImageThumbUrl(String imageThumbUrl) {
+    public void setImageThumbUrl(String imageThumbUrl) {
         this.imageThumbUrl = imageThumbUrl;
     }
 
-    public String setRole() {
+    public String getRole() {
         return this.role;
     }
 
-    public void getRole(String role) {
+    public void setRole(String role) {
         this.role = role;
     }
 
-    public Short setEnabled() {
+    public Short getEnabled() {
         return this.enabled;
     }
 
-    public void getEnabled(Short enabled) {
+    public void setEnabled(Short enabled) {
         this.enabled = enabled;
     }
 
-    public String setPassword() {
+    public String getPassword() {
         return this.password;
     }
 
-    public void getPassword(String password) {
+    public void setPassword(String password) {
         this.password = password;
     }
 
