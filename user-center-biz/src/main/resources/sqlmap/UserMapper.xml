@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="psyco.user.center.dal.mapper.UserMapper">
+    <resultMap id="resultMap" type="psyco.user.center.dal.entity.User">
+        <result column="id" property="id"/>
+        <result column="name" property="name"/>
+        <result column="sex" property="sex"/>
+        <result column="email" property="email"/>
+        <result column="phone" property="phone"/>
+        <result column="level" property="level"/>
+        <result column="image_url" property="imageUrl"/>
+        <result column="image_thumb_url" property="imageThumbUrl"/>
+        <result column="role" property="role"/>
+        <result column="enabled" property="enabled"/>
+        <result column="password" property="password"/>
+    </resultMap>
+
+    <sql id="selectAllColumns">
+        SELECT
+        id,name,sex,email,phone,level,image_url,image_thumb_url,role,enabled,password
+        FROM User
+    </sql>
+
+    <sql id="setAllColumns">
+        <set>
+            <if test="id != null">  id = #{id},</if>
+            <if test="name != null">  name = #{name},</if>
+            <if test="sex != null">  sex = #{sex},</if>
+            <if test="email != null">  email = #{email},</if>
+            <if test="phone != null">  phone = #{phone},</if>
+            <if test="level != null">  level = #{level},</if>
+            <if test="image_url != null">  image_url = #{imageUrl},</if>
+            <if test="image_thumb_url != null">  image_thumb_url = #{imageThumbUrl},</if>
+            <if test="role != null">  role = #{role},</if>
+            <if test="enabled != null">  enabled = #{enabled},</if>
+            <if test="password != null">  password = #{password},</if>
+        </set>
+    </sql>
+
+    <select id="findOne" resultMap="resultMap">
+        <include refid="selectAllColumns"/>
+        where id = #{id}
+    </select>
+    <select id="find" resultMap="resultMap">
+        <include refid="selectAllColumns"/>
+        <where>
+            <if test="ids != null">
+                and id in
+                <foreach item="item" index="index" collection="ids" open="(" separator="," close=")">
+                    #{item}
+                </foreach>
+            </if>
+        </where>
+        ORDER BY id desc
+    </select>
+
+    <update id="update" parameterType="com.pajk.trademanage.dal.model.ConsultOrder">
+        UPDATE
+        User
+        <include refid="setAllColumns"/>
+        WHERE
+            id = #{id}
+    </update>
+
+    <insert id="insert" useGeneratedKeys="true" keyProperty="id" parameterType="User">
+        INSERT INTO User
+        <include refid="setAllColumns"/>
+    </insert>
+
+    <delete id="delete">
+        DELETE FROM User
+        WHERE id = #{id}
+    </delete>
+</mapper>
