@@ -1,8 +1,7 @@
 package psyco.user.center.dal.mapper;
 
-import psyco.user.center.dal.entity.User;
-
 import java.util.List;
+import psyco.user.center.dal.entity.User;
 
 public interface UserMapper{
 

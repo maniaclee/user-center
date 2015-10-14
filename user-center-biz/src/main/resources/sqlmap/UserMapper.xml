@@ -41,17 +41,15 @@
         <include refid="selectAllColumns"/>
         where id = #{id}
     </select>
-    <select id="find" resultMap="resultMap" parameterType="list" >
+    <select id="find" resultMap="resultMap">
         <include refid="selectAllColumns"/>
         <where>
-            <if test="ids != null">
-                and id in
-                <foreach item="item" index="index" collection="ids" open="(" separator="," close=")">
-                    #{item}
-                </foreach>
-            </if>
+           id in
+            <foreach item="item" index="index" collection="list" open="(" separator="," close=")">
+                #{item}
+            </foreach>
         </where>
-        ORDER BY id desc
+        ORDER BY id asc
     </select>
 
     <update id="update" parameterType="psyco.user.center.dal.entity.User">
