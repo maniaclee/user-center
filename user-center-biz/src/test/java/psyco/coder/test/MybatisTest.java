@@ -25,12 +25,12 @@ public class MybatisTest {
     @Test
     public void test() {
         long id = 20;
-        System.out.println(ageMapper.getById(20l));
+        System.out.println(ageMapper.findOne(20l));
         User update=new User();
         update.setId(id);
         update.setLevel(100);
         ageMapper.update(update);
-        System.out.println(ageMapper.getById(20l));
+        System.out.println(ageMapper.findOne(20l));
     }
 
     @Test

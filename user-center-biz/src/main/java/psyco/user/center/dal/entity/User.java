@@ -1,6 +1,10 @@
 package psyco.user.center.dal.entity;
+import java.io.Serializable;
 
-public class User {
+/**
+ * Created by psyco on 2015/18/14-11:10:09.
+ */
+public class User implements Serializable{
 
     private Long id;
     private String name;
