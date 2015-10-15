@@ -1,45 +1,10 @@
 package psyco.user.center.dal.entity;
 
-import psyco.user.center.client.dto.UserDTO;
-
 import java.io.Serializable;
-
 /**
- * Created by psyco on 2015/56/15-12:10:39.
+ * Created by psyco on 2015/39/15-09:10:31.
  */
-public class User implements Serializable {
-
-    public UserDTO to() {
-        UserDTO re = new UserDTO();
-        re.setId(getId());
-        re.setName(getName());
-        re.setSex(getSex());
-        re.setEmail(getEmail());
-        re.setPhone(getPhone());
-        re.setLevel(getLevel());
-        re.setImageUrl(getImageUrl());
-        re.setImageThumbUrl(getImageThumbUrl());
-        re.setRole(getRole());
-        re.setEnabled(getEnabled());
-        re.setPassword(getPassword());
-        return re;
-    }
-
-    public static User from(UserDTO userDTO) {
-        User re = new User();
-        re.setId(userDTO.getId());
-        re.setName(userDTO.getName());
-        re.setSex(userDTO.getSex());
-        re.setEmail(userDTO.getEmail());
-        re.setPhone(userDTO.getPhone());
-        re.setLevel(userDTO.getLevel());
-        re.setImageUrl(userDTO.getImageUrl());
-        re.setImageThumbUrl(userDTO.getImageThumbUrl());
-        re.setRole(userDTO.getRole());
-        re.setEnabled(userDTO.getEnabled());
-        re.setPassword(userDTO.getPassword());
-        return re;
-    }
+public class User implements Serializable{
 
     private Long id;
     private String name;
@@ -52,9 +17,6 @@ public class User implements Serializable {
     private String role;
     private Short enabled;
     private String password;
-
-    public User() {
-    }
 
     public Long getId() {
         return this.id;

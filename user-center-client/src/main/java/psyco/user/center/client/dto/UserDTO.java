@@ -1,11 +1,11 @@
 package psyco.user.center.client.dto;
 
 import java.io.Serializable;
-
 /**
- * Created by lipeng on 15/10/14.
+ * Created by psyco on 2015/39/15-09:10:32.
  */
 public class UserDTO implements Serializable{
+
     private Long id;
     private String name;
     private Short sex;
@@ -19,7 +19,7 @@ public class UserDTO implements Serializable{
     private String password;
 
     public Long getId() {
-        return id;
+        return this.id;
     }
 
     public void setId(Long id) {
@@ -27,7 +27,7 @@ public class UserDTO implements Serializable{
     }
 
     public String getName() {
-        return name;
+        return this.name;
     }
 
     public void setName(String name) {
@@ -35,7 +35,7 @@ public class UserDTO implements Serializable{
     }
 
     public Short getSex() {
-        return sex;
+        return this.sex;
     }
 
     public void setSex(Short sex) {
@@ -43,7 +43,7 @@ public class UserDTO implements Serializable{
     }
 
     public String getEmail() {
-        return email;
+        return this.email;
     }
 
     public void setEmail(String email) {
@@ -51,7 +51,7 @@ public class UserDTO implements Serializable{
     }
 
     public String getPhone() {
-        return phone;
+        return this.phone;
     }
 
     public void setPhone(String phone) {
@@ -59,7 +59,7 @@ public class UserDTO implements Serializable{
     }
 
     public Integer getLevel() {
-        return level;
+        return this.level;
     }
 
     public void setLevel(Integer level) {
@@ -67,7 +67,7 @@ public class UserDTO implements Serializable{
     }
 
     public String getImageUrl() {
-        return imageUrl;
+        return this.imageUrl;
     }
 
     public void setImageUrl(String imageUrl) {
@@ -75,7 +75,7 @@ public class UserDTO implements Serializable{
     }
 
     public String getImageThumbUrl() {
-        return imageThumbUrl;
+        return this.imageThumbUrl;
     }
 
     public void setImageThumbUrl(String imageThumbUrl) {
@@ -83,7 +83,7 @@ public class UserDTO implements Serializable{
     }
 
     public String getRole() {
-        return role;
+        return this.role;
     }
 
     public void setRole(String role) {
@@ -91,7 +91,7 @@ public class UserDTO implements Serializable{
     }
 
     public Short getEnabled() {
-        return enabled;
+        return this.enabled;
     }
 
     public void setEnabled(Short enabled) {
@@ -99,10 +99,27 @@ public class UserDTO implements Serializable{
     }
 
     public String getPassword() {
-        return password;
+        return this.password;
     }
 
     public void setPassword(String password) {
         this.password = password;
+    }
+
+    @Override
+    public String toString() {
+        return "UserDTO{" +
+                "id='" + id + '\'' +
+                "name='" + name + '\'' +
+                "sex='" + sex + '\'' +
+                "email='" + email + '\'' +
+                "phone='" + phone + '\'' +
+                "level='" + level + '\'' +
+                "imageUrl='" + imageUrl + '\'' +
+                "imageThumbUrl='" + imageThumbUrl + '\'' +
+                "role='" + role + '\'' +
+                "enabled='" + enabled + '\'' +
+                "password='" + password + '\'' +
+                '}';
     }
 }
