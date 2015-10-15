@@ -16,7 +16,7 @@ import psyco.user.center.client.service.UserService;
  * Created by lipeng on 15/10/15.
  */
 @Configuration
-public class ExportServiceConfig extends DubboConfig {
+public class DubboProviderConfig extends DubboConfig {
 
     @Value("${dubbo.port}")
     private Integer port;

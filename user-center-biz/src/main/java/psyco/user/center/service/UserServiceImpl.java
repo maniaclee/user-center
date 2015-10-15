@@ -7,6 +7,9 @@ import psyco.user.center.client.service.UserService;
  * Created by lipeng on 15/10/14.
  */
 @Service
-public class UserServiceImpl implements UserService{
+public class UserServiceImpl implements UserService {
 
+    public String echo(String s) {
+        return "Userxxxxx+\t" + s;
+    }
 }
