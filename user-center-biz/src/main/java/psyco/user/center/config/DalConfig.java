@@ -65,7 +65,7 @@ public class DalConfig {
         druidDataSource.setTestOnReturn(false);
         druidDataSource.setPoolPreparedStatements(true);
         druidDataSource.setMaxPoolPreparedStatementPerConnectionSize(20);
-        druidDataSource.setFilters("config");
+        druidDataSource.setFilters("psyco/user/center/config");
         Properties properties = new Properties();
         properties.put("config.decrypt", "true");
         druidDataSource.setConnectProperties(properties);
