@@ -2,7 +2,7 @@ package psyco.user.center.dal.entity;
 
 import java.io.Serializable;
 /**
- * Created by psyco on 2015/39/15-09:10:31.
+ * Created by psyco on 2015/46/16-12:10:46.
  */
 public class User implements Serializable{
 

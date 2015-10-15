@@ -3,7 +3,7 @@ package psyco.user.center.dal.convert;
 import psyco.user.center.dal.entity.User;
 import psyco.user.center.client.dto.UserDTO;
 /**
- * Created by psyco on 2015/39/15-09:10:31.
+ * Created by psyco on 2015/46/16-12:10:46.
  */
 public class UserDTOBuilder{
     public static UserDTO toUserDTO(User user){
