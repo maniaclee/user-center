@@ -13,10 +13,10 @@ import org.springframework.context.annotation.Configuration;
 @Configuration
 @SpringBootApplication
 @ComponentScan("psyco.user.center")
-public class ApplicationMain {
-    static Logger logger = LoggerFactory.getLogger(ApplicationMain.class);
+public class AppUserCenter {
+    static Logger logger = LoggerFactory.getLogger(AppUserCenter.class);
     public static void main(String[] args) {
         logger.info("----------User-Center started");
-        SpringApplication.run(ApplicationMain.class);
+        SpringApplication.run(AppUserCenter.class);
     }
 }
