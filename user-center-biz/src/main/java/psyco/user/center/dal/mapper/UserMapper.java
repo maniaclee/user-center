@@ -6,17 +6,17 @@ import java.util.List;
 
 public interface UserMapper{
 
-    public User findOne(Long id);
+    User findOne(Long id);
 
-    public List<User> find(List<Long> ids);
+    List<User> find(List<Long> ids);
 
-    public Long insert(User user);
+    Long insert(User user);
 
-    public void update(User user);
+    void update(User user);
 
-    public void delete(Long id);
+    void delete(Long id);
 
-    List<User>  findByPhoneOrEmail(String phone , String email);
+    User  findByPhoneOrEmail(String phone , String email);
 
 
 }

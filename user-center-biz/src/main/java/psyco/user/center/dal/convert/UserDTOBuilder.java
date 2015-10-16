@@ -21,7 +21,7 @@ public class UserDTOBuilder{
         re.setPassword(user.getPassword());
         return re;
     }
-    public static User toUser(User userDTO){
+    public static User toUser(UserDTO userDTO){
         User re = new User();
         re.setId(userDTO.getId());
         re.setName(userDTO.getName());
