@@ -73,8 +73,8 @@
         DELETE FROM User
         WHERE id = #{id}
     </delete>
-    <select id="findByPhoneOrEmail" resultMap="resultMap">
+    <select id="findByPhoneOrEmail">
       <include refid="selectAllColumns"/>
-        where phone = #{param1} OR email = #{param2}
+        where phone=#{phone} OR email = #{email}
     </select>
 </mapper>

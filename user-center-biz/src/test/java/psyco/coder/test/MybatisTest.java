@@ -4,7 +4,10 @@ import com.google.common.base.CaseFormat;
 import com.google.common.collect.Lists;
 import org.junit.Test;
 import org.junit.runner.RunWith;
+import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.test.SpringApplicationConfiguration;
+import org.springframework.context.annotation.Configuration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import psyco.user.center.AppUserCenter;
 import psyco.user.center.config.DalConfig;
@@ -17,7 +20,10 @@ import javax.annotation.Resource;
  * Created by lipeng on 15/8/15.
  */
 @RunWith(SpringJUnit4ClassRunner.class)
-@SpringApplicationConfiguration(classes = {DalConfig.class, AppUserCenter.class})
+@Configuration
+@SpringBootApplication
+@SpringApplicationConfiguration(classes = {DalConfig.class,MybatisTest.class})
+@EnableAutoConfiguration(exclude = {AppUserCenter.class})
 public class MybatisTest {
 
     @Resource
@@ -42,6 +48,7 @@ public class MybatisTest {
     public void sdfsdf(){
         String columnName = "imageUrl";
         System.out.println(CaseFormat.LOWER_CAMEL.to(CaseFormat.LOWER_HYPHEN, columnName));
+        System.out.println(ageMapper.findByPhoneOrEmail("5555","5555"));
     }
 
 }
