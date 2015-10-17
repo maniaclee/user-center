@@ -2,6 +2,7 @@ package psyco.user.center.service;
 
 import org.springframework.stereotype.Service;
 import psyco.user.center.client.dto.UserDTO;
+import psyco.user.center.client.dto.request.FindUserRequestDTO;
 import psyco.user.center.client.service.UserService;
 import psyco.user.center.dal.convert.UserDTOBuilder;
 import psyco.user.center.dal.repo.UserRepository;
@@ -38,7 +39,8 @@ public class UserServiceImpl implements UserService {
         userRepository.update(UserDTOBuilder.toUser(user));
     }
 
-    public UserDTO findByPhoneOrEmail(String phone, String email) {
-        return UserDTOBuilder.toUserDTO(userRepository.findByPhoneOrEmail(phone, email));
+    public UserDTO findByRequest(FindUserRequestDTO findUserRequestDTO) {
+        return null;
     }
+
 }

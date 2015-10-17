@@ -10,6 +10,7 @@ import org.springframework.boot.test.SpringApplicationConfiguration;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import psyco.user.center.AppUserCenter;
+import psyco.user.center.client.dto.request.FindUserRequestDTO;
 import psyco.user.center.config.DalConfig;
 import psyco.user.center.dal.entity.User;
 import psyco.user.center.dal.mapper.UserMapper;
@@ -48,7 +49,11 @@ public class MybatisTest {
     public void sdfsdf(){
         String columnName = "imageUrl";
         System.out.println(CaseFormat.LOWER_CAMEL.to(CaseFormat.LOWER_HYPHEN, columnName));
-        System.out.println(ageMapper.findByPhoneOrEmail("5555","5555"));
+        FindUserRequestDTO request = new FindUserRequestDTO();
+        request.setEmail("123@123.com");
+        request.setPhone("555");
+        System.out.println(ageMapper.findByRequest(request));
+
     }
 
 }

@@ -1,6 +1,7 @@
 package psyco.user.center.client.service;
 
 import psyco.user.center.client.dto.UserDTO;
+import psyco.user.center.client.dto.request.FindUserRequestDTO;
 
 import java.util.List;
 
@@ -19,5 +20,8 @@ public interface UserService {
 
     void update(UserDTO user);
 
-    UserDTO findByPhoneOrEmail(String phone, String email);
+    UserDTO findByRequest(FindUserRequestDTO findUserRequestDTO);
+
+
+
 }

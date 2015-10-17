@@ -1,5 +1,7 @@
 package psyco.user.center.dal.mapper;
 
+import psyco.user.center.client.dto.UserDTO;
+import psyco.user.center.client.dto.request.FindUserRequestDTO;
 import psyco.user.center.dal.entity.User;
 
 import java.util.List;
@@ -16,7 +18,6 @@ public interface UserMapper{
 
     void delete(Long id);
 
-    User  findByPhoneOrEmail(String phone , String email);
-
+    UserDTO findByRequest(FindUserRequestDTO findUserRequestDTO);
 
 }

@@ -73,9 +73,12 @@
         DELETE FROM User
         WHERE id = #{id}
     </delete>
-    <select id="findByPhoneOrEmail" resultMap="resultMap">
+    <select id="findByRequest" resultMap="resultMap">
       <include refid="selectAllColumns"/>
-        where phone = #{param1} OR email = #{param2}
+        WHERE
+        <if test="id != null">  id = #{id} AND </if>
+        <if test="email != null">  email = #{email} AND </if>
+        <if test="phone != null">  phone = #{phone} AND </if>
         LIMIT 1
     </select>
 </mapper>
