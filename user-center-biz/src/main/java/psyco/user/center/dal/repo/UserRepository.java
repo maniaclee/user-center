@@ -1,5 +1,6 @@
 package psyco.user.center.dal.repo;
 
+import psyco.user.center.client.dto.request.FindUserRequestDTO;
 import psyco.user.center.dal.entity.User;
 import psyco.user.center.dal.mapper.UserMapper;
 
@@ -35,7 +36,7 @@ public class UserRepository {
         return userMapper.insert(user);
     }
 
-    public User findByPhoneOrEmail(String phone, String email) {
-        return userMapper.findByPhoneOrEmail(phone, email);
+    public User findByRequest(FindUserRequestDTO dto) {
+        return userMapper.findByRequest(dto);
     }
 }

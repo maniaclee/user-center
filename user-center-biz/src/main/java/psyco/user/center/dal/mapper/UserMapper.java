@@ -1,6 +1,5 @@
 package psyco.user.center.dal.mapper;
 
-import psyco.user.center.client.dto.UserDTO;
 import psyco.user.center.client.dto.request.FindUserRequestDTO;
 import psyco.user.center.dal.entity.User;
 
@@ -18,6 +17,6 @@ public interface UserMapper{
 
     void delete(Long id);
 
-    UserDTO findByRequest(FindUserRequestDTO findUserRequestDTO);
+    User findByRequest(FindUserRequestDTO findUserRequestDTO);
 
 }

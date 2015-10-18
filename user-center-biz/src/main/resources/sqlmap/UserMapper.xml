@@ -23,17 +23,17 @@
 
     <sql id="setAllColumns">
         <set>
-            <if test="id != null">  id = #{id},</if>
-            <if test="name != null">  name = #{name},</if>
-            <if test="sex != null">  sex = #{sex},</if>
-            <if test="email != null">  email = #{email},</if>
-            <if test="phone != null">  phone = #{phone},</if>
-            <if test="level != null">  level = #{level},</if>
-            <if test="imageUrl != null">  image_url = #{imageUrl},</if>
-            <if test="imageThumbUrl != null">  image_thumb_url = #{imageThumbUrl},</if>
-            <if test="role != null">  role = #{role},</if>
-            <if test="enabled != null">  enabled = #{enabled},</if>
-            <if test="password != null">  password = #{password},</if>
+            <if test="id != null">id = #{id},</if>
+            <if test="name != null">name = #{name},</if>
+            <if test="sex != null">sex = #{sex},</if>
+            <if test="email != null">email = #{email},</if>
+            <if test="phone != null">phone = #{phone},</if>
+            <if test="level != null">level = #{level},</if>
+            <if test="imageUrl != null">image_url = #{imageUrl},</if>
+            <if test="imageThumbUrl != null">image_thumb_url = #{imageThumbUrl},</if>
+            <if test="role != null">role = #{role},</if>
+            <if test="enabled != null">enabled = #{enabled},</if>
+            <if test="password != null">password = #{password},</if>
         </set>
     </sql>
 
@@ -44,7 +44,7 @@
     <select id="find" resultMap="resultMap">
         <include refid="selectAllColumns"/>
         <where>
-           id in
+            id in
             <foreach item="item" index="index" collection="list" open="(" separator="," close=")">
                 #{item}
             </foreach>
@@ -57,12 +57,12 @@
         User
         <include refid="setAllColumns"/>
         WHERE
-            id = #{id}
+        id = #{id}
     </update>
 
     <insert id="insert" useGeneratedKeys="true" keyProperty="id" parameterType="User">
-        <selectKey resultType="Long" keyProperty="id" order="AFTER" >
-          SELECT LAST_INSERT_ID() AS id
+        <selectKey resultType="Long" keyProperty="id" order="AFTER">
+            SELECT LAST_INSERT_ID() AS id
         </selectKey>
         INSERT INTO User
         (id,name,sex,email,phone,level,image_url,image_thumb_url,role,enabled,password)
@@ -74,11 +74,12 @@
         WHERE id = #{id}
     </delete>
     <select id="findByRequest" resultMap="resultMap">
-      <include refid="selectAllColumns"/>
-        WHERE
-        <if test="id != null">  id = #{id} AND </if>
-        <if test="email != null">  email = #{email} AND </if>
-        <if test="phone != null">  phone = #{phone} AND </if>
+        <include refid="selectAllColumns"/>
+        <where>
+            <if test="id != null">OR id = #{id}</if>
+            <if test="email != null">OR email = #{email}</if>
+            <if test="phone != null">OR phone = #{phone}</if>
+        </where>
         LIMIT 1
     </select>
 </mapper>

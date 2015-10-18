@@ -40,7 +40,7 @@ public class UserServiceImpl implements UserService {
     }
 
     public UserDTO findByRequest(FindUserRequestDTO findUserRequestDTO) {
-        return null;
+        return UserDTOBuilder.toUserDTO(userRepository.findByRequest(findUserRequestDTO));
     }
 
 }
