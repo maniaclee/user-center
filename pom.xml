@@ -244,55 +244,36 @@
     <!--nexus config-->
     <!--<repositories>-->
         <!--<repository>-->
-            <!--<id>internal-snapshots</id>-->
-            <!--<name>internal repository for snapshots artifacts</name>-->
-            <!--<url>${repo.internal.snapshots.url}</url>-->
-            <!--<snapshots>-->
-                <!--<enabled>true</enabled>-->
-            <!--</snapshots>-->
-            <!--<releases>-->
-                <!--<enabled>false</enabled>-->
-            <!--</releases>-->
+            <!--<id>central.maven.com</id>-->
+            <!--<name>mapbar central mirror.</name>-->
+            <!--<url>http://localhost:8081/nexus/content/repositories/central/</url>-->
         <!--</repository>-->
         <!--<repository>-->
-            <!--<id>internal-releases</id>-->
-            <!--<name>internal repository for released artifacts</name>-->
-            <!--<url>${repo.internal.releases.url}</url>-->
-            <!--<snapshots>-->
-                <!--<enabled>false</enabled>-->
-            <!--</snapshots>-->
-            <!--<releases>-->
-                <!--<enabled>true</enabled>-->
-            <!--</releases>-->
-        <!--</repository>-->
-        <!--&lt;!&ndash; no snapshot allowed for external repositories! &ndash;&gt;-->
-        <!--<repository>-->
-            <!--<id>third-party</id>-->
-            <!--<name>cache server for external repositories</name>-->
-            <!--<url>${repo.external.url}</url>-->
-            <!--<snapshots>-->
-                <!--<enabled>false</enabled>-->
-            <!--</snapshots>-->
+            <!--<id>3rd.mapbar.com</id>-->
+            <!--<name>mapbar thirdparty central mirror.</name>-->
+            <!--<url>http://localhost:8081/nexus/content/repositories/thirdparty/</url>-->
         <!--</repository>-->
         <!--<repository>-->
-            <!--<id>central</id>-->
-            <!--<name>proxy server for external repositories</name>-->
-            <!--<url>${repo.proxy.url}</url>-->
-            <!--<snapshots>-->
-                <!--<enabled>false</enabled>-->
-            <!--</snapshots>-->
+            <!--<id>public.mapbar.com</id>-->
+            <!--<name>mapbar tech API maven mirror.</name>-->
+            <!--<url>http://localhost:8081/nexus/content/groups/public/</url>-->
+        <!--</repository>-->
+        <!--<repository>-->
+            <!--<id>releases.mapbar.com</id>-->
+            <!--<name>mapbar thirdparty central mirror.</name>-->
+            <!--<url>http://localhost:8081/nexus/content/repositories/releases/</url>-->
         <!--</repository>-->
     <!--</repositories>-->
     <!--<distributionManagement>-->
         <!--<repository>-->
-            <!--<id>psyco-repo-release</id>-->
-            <!--<name>internal corporate repository</name>-->
-            <!--<url>${repo.internal.releases.url}</url>-->
+            <!--<id>nexus-releases</id>-->
+            <!--<name>Nexus Release Repository</name>-->
+            <!--<url>http://127.0.0.1:8081/nexus/content/repositories/releases/</url>-->
         <!--</repository>-->
         <!--<snapshotRepository>-->
-            <!--<id>repo.snapshots</id>-->
-            <!--<name>internal corporate snapshots repository</name>-->
-            <!--<url>${repo.internal.snapshots.url}</url>-->
+            <!--<id>nexus-snapshots</id>-->
+            <!--<name>Nexus Snapshot Repository</name>-->
+            <!--<url>http://127.0.0.1:8081/nexus/content/repositories/snapshots/</url>-->
         <!--</snapshotRepository>-->
     <!--</distributionManagement>-->
 </project>
