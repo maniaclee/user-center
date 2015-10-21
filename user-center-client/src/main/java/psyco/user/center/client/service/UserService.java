@@ -19,7 +19,7 @@ public interface UserService {
 
     Long insert(UserDTO user) throws ErrorCodeException;
 
-    void update(UserDTO user);
+    UserDTO update(UserDTO user);
 
     UserDTO findByRequest(FindUserRequestDTO findUserRequestDTO);
 

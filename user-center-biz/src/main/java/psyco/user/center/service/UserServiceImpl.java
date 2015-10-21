@@ -42,8 +42,13 @@ public class UserServiceImpl implements UserService {
         return re;
     }
 
-    public void update(UserDTO user) {
-        userRepository.update(UserDTOBuilder.toUser(user));
+    public UserDTO update(UserDTO user) {
+        try {
+            userRepository.update(UserDTOBuilder.toUser(user));
+        } catch (Exception e) {
+            return null;
+        }
+        return UserDTOBuilder.toUserDTO(userRepository.findOne(user.getId()));
     }
 
     public UserDTO findByRequest(FindUserRequestDTO findUserRequestDTO) {
