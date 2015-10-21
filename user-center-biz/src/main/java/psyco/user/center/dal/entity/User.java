@@ -2,7 +2,7 @@ package psyco.user.center.dal.entity;
 
 import java.io.Serializable;
 /**
- * Created by psyco on 2015/46/16-12:10:46.
+ * Created by psyco on 2015/40/21-09:10:39.
  */
 public class User implements Serializable{
 
@@ -17,6 +17,8 @@ public class User implements Serializable{
     private String role;
     private Short enabled;
     private String password;
+    private Date gmtCreate;
+    private Date gmtLastModified;
 
     public Long getId() {
         return this.id;
@@ -106,6 +108,22 @@ public class User implements Serializable{
         this.password = password;
     }
 
+    public Date getGmtCreate() {
+        return this.gmtCreate;
+    }
+
+    public void setGmtCreate(Date gmtCreate) {
+        this.gmtCreate = gmtCreate;
+    }
+
+    public Date getGmtLastModified() {
+        return this.gmtLastModified;
+    }
+
+    public void setGmtLastModified(Date gmtLastModified) {
+        this.gmtLastModified = gmtLastModified;
+    }
+
     @Override
     public String toString() {
         return "User{" +
@@ -120,6 +138,8 @@ public class User implements Serializable{
                 "role='" + role + '\'' +
                 "enabled='" + enabled + '\'' +
                 "password='" + password + '\'' +
+                "gmtCreate='" + gmtCreate + '\'' +
+                "gmtLastModified='" + gmtLastModified + '\'' +
                 '}';
     }
 }

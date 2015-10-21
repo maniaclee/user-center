@@ -13,27 +13,31 @@
         <result column="role" property="role"/>
         <result column="enabled" property="enabled"/>
         <result column="password" property="password"/>
+        <result column="gmt_create" property="gmtCreate"/>
+        <result column="gmt_last_modified" property="gmtLastModified"/>
     </resultMap>
 
     <sql id="selectAllColumns">
         SELECT
-        id,name,sex,email,phone,level,image_url,image_thumb_url,role,enabled,password
+        id,name,sex,email,phone,level,image_url,image_thumb_url,role,enabled,password,gmt_create,gmt_last_modified
         FROM User
     </sql>
 
     <sql id="setAllColumns">
         <set>
-            <if test="id != null">id = #{id},</if>
-            <if test="name != null">name = #{name},</if>
-            <if test="sex != null">sex = #{sex},</if>
-            <if test="email != null">email = #{email},</if>
-            <if test="phone != null">phone = #{phone},</if>
-            <if test="level != null">level = #{level},</if>
-            <if test="imageUrl != null">image_url = #{imageUrl},</if>
-            <if test="imageThumbUrl != null">image_thumb_url = #{imageThumbUrl},</if>
-            <if test="role != null">role = #{role},</if>
-            <if test="enabled != null">enabled = #{enabled},</if>
-            <if test="password != null">password = #{password},</if>
+            <if test="id != null">  id = #{id},</if>
+            <if test="name != null">  name = #{name},</if>
+            <if test="sex != null">  sex = #{sex},</if>
+            <if test="email != null">  email = #{email},</if>
+            <if test="phone != null">  phone = #{phone},</if>
+            <if test="level != null">  level = #{level},</if>
+            <if test="imageUrl != null">  image_url = #{imageUrl},</if>
+            <if test="imageThumbUrl != null">  image_thumb_url = #{imageThumbUrl},</if>
+            <if test="role != null">  role = #{role},</if>
+            <if test="enabled != null">  enabled = #{enabled},</if>
+            <if test="password != null">  password = #{password},</if>
+            <if test="gmtCreate != null">  gmt_create = #{gmtCreate},</if>
+            <if test="gmtLastModified != null">  gmt_last_modified = #{gmtLastModified},</if>
         </set>
     </sql>
 
@@ -44,7 +48,7 @@
     <select id="find" resultMap="resultMap">
         <include refid="selectAllColumns"/>
         <where>
-            id in
+           id in
             <foreach item="item" index="index" collection="list" open="(" separator="," close=")">
                 #{item}
             </foreach>
@@ -57,16 +61,16 @@
         User
         <include refid="setAllColumns"/>
         WHERE
-        id = #{id}
+            id = #{id}
     </update>
 
     <insert id="insert" useGeneratedKeys="true" keyProperty="id" parameterType="User">
-        <selectKey resultType="Long" keyProperty="id" order="AFTER">
-            SELECT LAST_INSERT_ID() AS id
+        <selectKey resultType="Long" keyProperty="id" order="AFTER" >
+          SELECT LAST_INSERT_ID() AS id
         </selectKey>
         INSERT INTO User
-        (id,name,sex,email,phone,level,image_url,image_thumb_url,role,enabled,password)
-        values(#{id},#{name},#{sex},#{email},#{phone},#{level},#{imageUrl},#{imageThumbUrl},#{role},#{enabled},#{password})
+        (id,name,sex,email,phone,level,image_url,image_thumb_url,role,enabled,password,gmt_create,gmt_last_modified)
+        values(#{id},#{name},#{sex},#{email},#{phone},#{level},#{imageUrl},#{imageThumbUrl},#{role},#{enabled},#{password},#{gmtCreate},#{gmtLastModified})
     </insert>
 
     <delete id="delete">

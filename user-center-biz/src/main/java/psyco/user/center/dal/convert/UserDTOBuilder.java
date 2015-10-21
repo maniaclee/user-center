@@ -3,7 +3,7 @@ package psyco.user.center.dal.convert;
 import psyco.user.center.dal.entity.User;
 import psyco.user.center.client.dto.UserDTO;
 /**
- * Created by psyco on 2015/46/16-12:10:46.
+ * Created by psyco on 2015/40/21-09:10:39.
  */
 public class UserDTOBuilder{
     public static UserDTO toUserDTO(User user){
@@ -19,6 +19,8 @@ public class UserDTOBuilder{
         re.setRole(user.getRole());
         re.setEnabled(user.getEnabled());
         re.setPassword(user.getPassword());
+        re.setGmtCreate(user.getGmtCreate());
+        re.setGmtLastModified(user.getGmtLastModified());
         return re;
     }
     public static User toUser(UserDTO userDTO){
@@ -34,6 +36,8 @@ public class UserDTOBuilder{
         re.setRole(userDTO.getRole());
         re.setEnabled(userDTO.getEnabled());
         re.setPassword(userDTO.getPassword());
+        re.setGmtCreate(userDTO.getGmtCreate());
+        re.setGmtLastModified(userDTO.getGmtLastModified());
         return re;
     }
 }
