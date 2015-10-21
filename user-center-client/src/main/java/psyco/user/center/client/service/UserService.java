@@ -2,6 +2,7 @@ package psyco.user.center.client.service;
 
 import psyco.user.center.client.dto.UserDTO;
 import psyco.user.center.client.dto.request.FindUserRequestDTO;
+import psyco.user.center.client.exceptions.ErrorCodeException;
 
 import java.util.List;
 
@@ -16,7 +17,7 @@ public interface UserService {
 
     void delete(Long id);
 
-    Long insert(UserDTO user);
+    Long insert(UserDTO user) throws ErrorCodeException;
 
     void update(UserDTO user);
 

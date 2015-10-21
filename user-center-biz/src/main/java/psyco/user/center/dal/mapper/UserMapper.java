@@ -17,5 +17,5 @@ public interface UserMapper{
 
     void delete(Long id);
 
-    List<User> findByRequest(FindUserRequestDTO findUserRequestDTO);
+    User findByRequest(FindUserRequestDTO findUserRequestDTO);
 }

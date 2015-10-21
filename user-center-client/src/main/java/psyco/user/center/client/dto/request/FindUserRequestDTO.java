@@ -1,5 +1,7 @@
 package psyco.user.center.client.dto.request;
 
+import psyco.user.center.client.dto.UserDTO;
+
 import java.io.Serializable;
 
 /**
@@ -10,6 +12,15 @@ public class FindUserRequestDTO implements Serializable {
     private String phone;
     private String email;
     private Long id;
+
+    public static FindUserRequestDTO from(UserDTO userDTO) {
+        FindUserRequestDTO re = new FindUserRequestDTO();
+        re.setEmail(userDTO.getEmail());
+        re.setPhone(userDTO.getPhone());
+        re.setId(userDTO.getId());
+        return re;
+    }
+
 
     public String getPhone() {
         return phone;

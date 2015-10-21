@@ -33,7 +33,8 @@ public class UserRepository {
     }
 
     public Long insert(User user) {
-        return userMapper.insert(user);
+        Long re = userMapper.insert(user);
+        return re==null || re.equals(0) ? -1 : user.getId();
     }
 
     public User findByRequest(FindUserRequestDTO dto) {

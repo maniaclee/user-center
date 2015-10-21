@@ -3,6 +3,8 @@ package psyco.user.center.service;
 import org.springframework.stereotype.Service;
 import psyco.user.center.client.dto.UserDTO;
 import psyco.user.center.client.dto.request.FindUserRequestDTO;
+import psyco.user.center.client.enums.UserErrorCode;
+import psyco.user.center.client.exceptions.ErrorCodeException;
 import psyco.user.center.client.service.UserService;
 import psyco.user.center.dal.convert.UserDTOBuilder;
 import psyco.user.center.dal.repo.UserRepository;
@@ -31,8 +33,13 @@ public class UserServiceImpl implements UserService {
         userRepository.delete(id);
     }
 
-    public Long insert(UserDTO user) {
-        return userRepository.insert(UserDTOBuilder.toUser(user));
+    public Long insert(UserDTO user) throws ErrorCodeException {
+        if (userRepository.findByRequest(FindUserRequestDTO.from(user)) != null)
+            throw new ErrorCodeException(UserErrorCode.USER_EXIST);
+        Long re = userRepository.insert(UserDTOBuilder.toUser(user));
+        if (re < 0)
+            throw new ErrorCodeException(UserErrorCode.USER_INSERT_ERROR);
+        return re;
     }
 
     public void update(UserDTO user) {
@@ -42,5 +49,6 @@ public class UserServiceImpl implements UserService {
     public UserDTO findByRequest(FindUserRequestDTO findUserRequestDTO) {
         return UserDTOBuilder.toUserDTO(userRepository.findByRequest(findUserRequestDTO));
     }
+
 
 }
