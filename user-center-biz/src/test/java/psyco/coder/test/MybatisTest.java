@@ -7,10 +7,12 @@ import org.junit.runner.RunWith;
 import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.test.SpringApplicationConfiguration;
+import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import psyco.user.center.AppUserCenter;
 import psyco.user.center.client.dto.request.FindUserRequestDTO;
+import psyco.user.center.client.service.UserService;
 import psyco.user.center.config.DalConfig;
 import psyco.user.center.dal.entity.User;
 import psyco.user.center.dal.mapper.UserMapper;
@@ -25,10 +27,13 @@ import javax.annotation.Resource;
 @SpringBootApplication
 @SpringApplicationConfiguration(classes = {DalConfig.class,MybatisTest.class})
 @EnableAutoConfiguration(exclude = {AppUserCenter.class})
+@ComponentScan("psyco.user.center")
 public class MybatisTest {
 
     @Resource
     private UserMapper ageMapper;
+    @Resource
+    private UserService userService;
 
     @Test
     public void test() {
@@ -53,7 +58,14 @@ public class MybatisTest {
         request.setEmail("123@123.com");
         request.setPhone("555");
         System.out.println(ageMapper.findByRequest(request));
+    }
 
+    @Test
+    public void testUnbindPhone(){
+        Long userId = 41l;
+        System.out.println(userService.findOne(userId).getPhone());
+        System.out.println(userService.unbindPhone(userId));
+        System.out.println(userService.findOne(userId).getPhone());
     }
 
 }

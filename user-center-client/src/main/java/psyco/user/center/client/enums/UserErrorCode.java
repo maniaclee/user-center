@@ -5,7 +5,15 @@ package psyco.user.center.client.enums;
  */
 public enum UserErrorCode implements BaseEnum {
     USER_EXIST(0, "用户已存在"),
-    USER_INSERT_ERROR(1, "用户落库失败");
+    USER_NONE_EXIST(1, "用户不存在"),
+
+    USER_INSERT_ERROR(101, "用户落库失败"),
+
+    /**
+     * -------- bind issue ----------
+     */
+    USER_PHONE_BINDED(201, "用户手机已绑定"),
+    USER_EMAIL_BINDED(202, "用户邮箱已绑定");
 
     private int code;
     private String desc;

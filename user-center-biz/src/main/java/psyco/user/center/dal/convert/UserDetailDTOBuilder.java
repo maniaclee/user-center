@@ -18,4 +18,5 @@ public class UserDetailDTOBuilder{
         re.setUserId(userDetailDTO.getUserId());
         return re;
     }
+
 }

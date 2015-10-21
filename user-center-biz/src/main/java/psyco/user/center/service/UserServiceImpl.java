@@ -1,6 +1,7 @@
 package psyco.user.center.service;
 
-import org.springframework.stereotype.Service;
+import org.apache.commons.lang3.StringUtils;
+import org.springframework.stereotype.Component;
 import psyco.user.center.client.dto.UserDTO;
 import psyco.user.center.client.dto.request.FindUserRequestDTO;
 import psyco.user.center.client.enums.UserErrorCode;
@@ -11,12 +12,13 @@ import psyco.user.center.dal.repo.UserRepository;
 
 import javax.annotation.Resource;
 import java.util.List;
+import java.util.Optional;
 import java.util.stream.Collectors;
 
 /**
  * Created by lipeng on 15/10/14.
  */
-@Service
+@Component
 public class UserServiceImpl implements UserService {
     @Resource
     private UserRepository userRepository;
@@ -53,6 +55,32 @@ public class UserServiceImpl implements UserService {
 
     public UserDTO findByRequest(FindUserRequestDTO findUserRequestDTO) {
         return UserDTOBuilder.toUserDTO(userRepository.findByRequest(findUserRequestDTO));
+    }
+
+    @Override
+    public boolean unbindPhone(Long userId) {
+        return Optional.ofNullable(userId)
+                .map(aLong -> aLong <= 0 ? null : aLong)
+                .map(aLong1 -> userRepository.findOne(aLong1))
+                .map(user -> StringUtils.isBlank(user.getPhone()) ||
+                        update(UserDTOBuilder.builder()
+                                .setId(user.getId())
+                                .setPhone("")
+                                .build()) != null)
+                .orElse(false);
+    }
+
+    @Override
+    public boolean unbindEmail(Long userId) {
+        return Optional.ofNullable(userId)
+                .map(aLong -> aLong <= 0 ? null : aLong)
+                .map(aLong1 -> userRepository.findOne(aLong1))
+                .map(user -> StringUtils.isBlank(user.getEmail()) ||
+                        update(UserDTOBuilder.builder()
+                                .setId(user.getId())
+                                .setEmail("")
+                                .build()) != null)
+                .orElse(false);
     }
 
 

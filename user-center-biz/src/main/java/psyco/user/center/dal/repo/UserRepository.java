@@ -1,5 +1,6 @@
 package psyco.user.center.dal.repo;
 
+import org.springframework.stereotype.Repository;
 import psyco.user.center.client.dto.request.FindUserRequestDTO;
 import psyco.user.center.dal.entity.User;
 import psyco.user.center.dal.mapper.UserMapper;
@@ -10,7 +11,7 @@ import java.util.List;
 /**
  * Created by peng on 15/10/16.
  */
-@Resource
+@Repository
 public class UserRepository {
 
     @Resource

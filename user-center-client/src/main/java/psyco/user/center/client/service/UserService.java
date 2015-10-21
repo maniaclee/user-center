@@ -24,5 +24,7 @@ public interface UserService {
     UserDTO findByRequest(FindUserRequestDTO findUserRequestDTO);
 
 
+    boolean unbindPhone(Long userId);
 
+    boolean unbindEmail(Long userId);
 }

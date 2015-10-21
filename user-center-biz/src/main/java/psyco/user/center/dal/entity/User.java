@@ -1,6 +1,8 @@
 package psyco.user.center.dal.entity;
 
 import java.io.Serializable;
+import java.util.Date;
+
 /**
  * Created by psyco on 2015/40/21-09:10:39.
  */
