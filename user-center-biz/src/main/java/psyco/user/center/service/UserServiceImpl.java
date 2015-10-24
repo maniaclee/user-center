@@ -1,7 +1,7 @@
 package psyco.user.center.service;
 
 import org.apache.commons.lang3.StringUtils;
-import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Service;
 import psyco.user.center.client.dto.UserDTO;
 import psyco.user.center.client.dto.request.FindUserRequestDTO;
 import psyco.user.center.client.enums.UserErrorCode;
@@ -18,7 +18,7 @@ import java.util.stream.Collectors;
 /**
  * Created by lipeng on 15/10/14.
  */
-@Component
+@Service
 public class UserServiceImpl implements UserService {
     @Resource
     private UserRepository userRepository;
