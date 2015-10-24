@@ -25,10 +25,10 @@ public class DubboProviderConfig extends DubboConfig {
     @Value("${dubbo.provider.dubbo.version}")
     private String dubboExportVersion;
 
-    @Value("${dubbo.provider.dubbo.timeout}")
+    @Value("${dubbo.timeout}")
     private int timeout;
 
-    @Value("${dubbo.provider.dubbo.retries}")
+    @Value("${dubbo.retries}")
     private int retries;
 
 
