@@ -15,8 +15,9 @@ import org.springframework.context.annotation.Configuration;
 @ComponentScan("psyco.user.center")
 public class AppUserCenter {
     static Logger logger = LoggerFactory.getLogger(AppUserCenter.class);
+
     public static void main(String[] args) {
-        logger.info("----------User-Center started");
         SpringApplication.run(AppUserCenter.class);
+        logger.info("----------User-Center started");
     }
 }

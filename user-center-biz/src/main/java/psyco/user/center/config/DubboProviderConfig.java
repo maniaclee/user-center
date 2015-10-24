@@ -60,7 +60,7 @@ public class DubboProviderConfig extends DubboConfig {
     }
 
     @Bean
-    public ServiceBean<UserService> userServiceBean(UserService userService) {
+    public ServiceBean userServiceBean(UserService userService) {
         return bean(userService, UserService.class);
     }
 
